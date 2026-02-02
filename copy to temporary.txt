@@ -1,0 +1,16 @@
+Dim refName As String
+refName = Mid$(strRefFile, InStrRev(strRefFile, "\") + 1)
+
+FileCopy strRefFile, strTempFilesPath & "\" & refName & ".bak"
+
+
+
+Dim refName As String
+refName = Mid$(strRefFile, InStrRev(strRefFile, "\") + 1)
+
+Dim bakPath As String
+bakPath = strTempFilesPath & "\" & refName & ".bak"
+
+If Dir$(bakPath) <> "" Then
+    Kill bakPath
+End If

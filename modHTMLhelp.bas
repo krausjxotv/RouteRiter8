@@ -1,0 +1,39 @@
+Attribute VB_Name = "modHTMLhelp"
+
+' Visual Basic code for implementing HTML Help 1.1
+Declare Function HtmlHelp _
+        Lib "hhctrl.ocx" _
+        Alias "HtmlHelpA" (ByVal hwnd As Long, _
+                           ByVal lpHelpFile As String, _
+                           ByVal wCommand As Long, _
+                           ByVal dwData As Long) As Long
+
+Declare Function htmlHelpTopic _
+        Lib "hhctrl.ocx" _
+        Alias "HtmlHelpA" (ByVal hwnd As Long, _
+                           ByVal lpHelpFile As String, _
+                           ByVal wCommand As Long, _
+                           ByVal dwData As String) As Long
+
+Private Const HH_DISPLAY_TOC = &H1            ' WinHelp equivalent
+
+Public Function SetHTMLHelpStrings(ByVal intSelHelpFile As Integer) As String
+
+    ' Set the string variable to
+    ' include the application path
+    Select Case intSelHelpFile
+    Case 1
+        SetHTMLHelpStrings = App.Path & "\route_riter.chm"
+    Case 2
+        SetHTMLHelpStrings = App.Path & "\route_riter.chm::/FAQ.htm"
+    End Select
+
+End Function
+
+Public Sub HTMLHelpContents(ByVal intHelpFile As Integer, strWindow As String)
+    '
+    '  ' Force the Help window to display
+    '  ' the Contents file (*.hhc) in the left pane
+    HtmlHelp hwnd, SetHTMLHelpStrings(intHelpFile) & ">" & strWindow, HH_DISPLAY_TOC, 0
+End Sub
+
