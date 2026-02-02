@@ -436,6 +436,7 @@ Dim cn               As Integer, cnn As Integer
 Dim booTraffic       As Boolean
 Dim strConsistNames  As String
 Dim strStockName()   As String
+Dim RoutePath As String ' hide global in modele to fix path not found error 2026-01-29
 
 Private Sub SetLan()
     Dim i As Integer
@@ -883,7 +884,7 @@ Private Sub Form_Load()
         Label3(2).Caption = PTfcName(i)
         Rem ***********Loose Consists *************
 
-        RoutePath = ActPath(i)
+        RoutePath = ActPath(i) 'RoutePath is defined in this form
         ActName = Label3(1).Caption
 
         Grid2.Rows = 0
@@ -972,7 +973,7 @@ Private Sub LooseActivities(ActPath As String)
     On Error GoTo Errtrap
 
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    RoutePath = MSTSPath & "\Routes" 'RoutePath defined in this form
     TrainsetPath = MSTSPath & "\Trains\Trainset\"
 
     x = InStrRev(ActPath, "\")

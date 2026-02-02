@@ -486,8 +486,13 @@ Private Sub Command3_Click()
     CDL1.Filter = "VSView Files (*.vsv)|*.vsv"
     CDL1.DialogTitle = "Save Current Document"
     CDL1.FilterIndex = 1
+    CDL1.CancelError = False
     CDL1.Action = 2
     strList = CDL1.Filename
+    If Len(strList) = 0 Then
+        MousePointer = 0
+        Exit Sub
+    End If
     VSPrinter.SaveDoc strList
 
     DoEvents

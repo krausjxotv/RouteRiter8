@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
 Begin VB.Form frmUtils 
    Caption         =   "Route_Riter v7"
    ClientHeight    =   9420
@@ -326,8 +326,8 @@ Begin VB.Form frmUtils
       TabCaption(2)   =   "MSTS File Utils"
       TabPicture(2)   =   "frmUtils.frx":40A2
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "Label9"
-      Tab(2).Control(1)=   "Frame3"
+      Tab(2).Control(0)=   "Frame3"
+      Tab(2).Control(1)=   "Label9"
       Tab(2).ControlCount=   2
       TabCaption(3)   =   "General Utils"
       TabPicture(3)   =   "frmUtils.frx":40BE
@@ -342,22 +342,22 @@ Begin VB.Form frmUtils
       TabCaption(5)   =   "Misc. Options"
       TabPicture(5)   =   "frmUtils.frx":40F6
       Tab(5).ControlEnabled=   0   'False
-      Tab(5).Control(0)=   "Frame11"
-      Tab(5).Control(1)=   "Frame13"
-      Tab(5).Control(2)=   "Frame6"
-      Tab(5).Control(3)=   "Frame15"
+      Tab(5).Control(0)=   "Frame15"
+      Tab(5).Control(1)=   "Frame6"
+      Tab(5).Control(2)=   "Frame13"
+      Tab(5).Control(3)=   "Frame11"
       Tab(5).ControlCount=   4
       TabCaption(6)   =   "Graphics"
       TabPicture(6)   =   "frmUtils.frx":4112
       Tab(6).ControlEnabled=   0   'False
-      Tab(6).Control(0)=   "Frame8"
-      Tab(6).Control(1)=   "Label11"
+      Tab(6).Control(0)=   "Label11"
+      Tab(6).Control(1)=   "Frame8"
       Tab(6).ControlCount=   2
       TabCaption(7)   =   "TsUtils"
       TabPicture(7)   =   "frmUtils.frx":412E
       Tab(7).ControlEnabled=   0   'False
-      Tab(7).Control(0)=   "Label12"
-      Tab(7).Control(1)=   "Frame10"
+      Tab(7).Control(0)=   "Frame10"
+      Tab(7).Control(1)=   "Label12"
       Tab(7).ControlCount=   2
       TabCaption(8)   =   "Hardlink Files"
       TabPicture(8)   =   "frmUtils.frx":414A
@@ -367,8 +367,8 @@ Begin VB.Form frmUtils
       TabCaption(9)   =   "RailDriver/Registry"
       TabPicture(9)   =   "frmUtils.frx":4166
       Tab(9).ControlEnabled=   0   'False
-      Tab(9).Control(0)=   "Frame17"
-      Tab(9).Control(1)=   "Frame18"
+      Tab(9).Control(0)=   "Frame18"
+      Tab(9).Control(1)=   "Frame17"
       Tab(9).ControlCount=   2
       Begin VB.Frame Frame18 
          Caption         =   "Registry Options"
@@ -17956,13 +17956,15 @@ End Sub
 Private Sub GetPaths()
     Dim jj As Integer, strPathsPath As String, strPathsName As String
     Dim i  As Integer
+    Dim routesFolder As String ' hide global RoutePath which causes a folder not found crash
 
     On Error GoTo Errtrap
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    'RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     cursouind = 0
     Drive1(cursouind).Drive = Left$(MSTSPath, 2)
-    Dir1(cursouind).Path = RoutePath
+    Dir1(cursouind).Path = routesFolder 'RoutePath
     Text1(cursouind) = "*.*"
     DoEvents
     'strForPrint = vbNullString
@@ -18078,13 +18080,15 @@ End Sub
 Private Sub GetTraffic()
     Dim jj As Integer, strTfcPath As String, strTfcName As String
     Dim i  As Integer
+    Dim routesFolder As String ' hide global RoutePath to prevent folder not found crash
 
     On Error GoTo Errtrap
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    'RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     cursouind = 0
     Drive1(cursouind).Drive = Left$(MSTSPath, 2)
-    Dir1(cursouind).Path = RoutePath
+    Dir1(cursouind).Path = routesFolder 'RoutePath
     Text1(cursouind) = "*.*"
     DoEvents
     'strForPrint = vbNullString
@@ -18203,13 +18207,15 @@ Private Sub GetServices()
 
     Dim jj As Integer, strSrvName As String, strSrvPath As String
     Dim i  As Integer
+    Dim routesFolder As String ' replace reference to global RoutePath which later causes a folder not found crash
 
     On Error GoTo Errtrap
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    'RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     cursouind = 0
     Drive1(cursouind).Drive = Left$(MSTSPath, 2)
-    Dir1(cursouind).Path = RoutePath
+    Dir1(cursouind).Path = routesFolder 'RoutePath
     Text1(cursouind) = "*.*"
     DoEvents
 
@@ -18481,13 +18487,15 @@ Private Sub GetActivities()
     Dim svcExists     As Boolean, Y As Integer, tfcExists As Boolean, j As Integer
     Dim NameExists    As Boolean, jj As Integer, strActName As String, strActPath As String
     Dim NewFile       As Integer, A$
+    Dim routesFolder As String 'used to replace global RoutesPath which resulted in path not found error
 
     On Error GoTo Errtrap
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    'RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     cursouind = 0
     Drive1(cursouind).Drive = Left$(MSTSPath, 2)
-    Dir1(cursouind).Path = RoutePath
+    Dir1(cursouind).Path = routesFolder 'RoutePath
     Text1(cursouind) = "*.*"
     DoEvents
 
@@ -28760,14 +28768,25 @@ Private Sub Command58_Click()
             Exit Sub
         End If
     End If
-    FileCopy strRefFile, strRefFile & ".bak"
+    
+    ' TODO create backup in temporary storage strTempFilesPath
+    Dim refName As String
+    refName = Mid$(strRefFile, InStrRev(strRefFile, "\") + 1)
+    Dim refBak As String
+    refBak = strTempFilesPath & "\" & refName & ".bak"
+    If Dir$(refBak) <> "" Then
+        Kill (refBak)
+    End If
+    FileCopy strRefFile, refBak
+    ' FileCopy strRefFile, strRefFile & ".bak"
+    
     NewFile = FreeFile
     Open strRefFile For Binary As #NewFile
     'FIXIT: Replace 'String' function with 'String$' function                                  FixIT90210ae-R9757-R1B8ZE
     strTemp = String(2, " ")
     Get #NewFile, , strTemp
     Close #NewFile
-     
+    ' check for unicode byte order mark
     If Asc(Mid$(strTemp, 1, 1)) <> 255 Then
         If Asc(Mid$(strTemp, 2, 1)) <> 254 Then
             Call ConvertIt(strRefFile, 1)
@@ -29986,6 +30005,10 @@ Label2:
         GoTo NoMSTS
     End If
     
+    If Left(RoutePath, Len(MSTSPath)) <> MSTSPath Then
+        RoutePath = "" 'route not inside MSTS installation
+    End If
+    
 Label3:
 
     strTempFilesPath = SpecialFolder(SpecialFolder_LocalAppData) & "\Route_Riter\TempFiles"
@@ -30461,6 +30484,9 @@ Private Sub mnuPath_Click()
         SaveSetting "Route_Riter6", "Startup", "Top", frmUtils.Top
         SaveSetting "Route_Riter6", "Startup", "Height", frmUtils.height
         SaveSetting "Route_Riter6", "Startup", "Width", frmUtils.width
+    End If
+    If Left(RoutePath, Len(MSTSPath)) <> MSTSPath Then
+        RoutePath = ""
     End If
     SaveSetting "Route_Riter6", "Files", "File", RoutePath
     SaveSetting "Route_Riter6", "Languages", "Language", strLanguage

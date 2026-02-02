@@ -303,6 +303,8 @@ Dim ConDown     As Boolean
 Dim flagPathRed As Boolean
 Dim flagTfcRed  As Boolean
 Dim flagEngRed  As Boolean
+Dim RoutePath As String 'hide global varialbe to prevent folder not found crash in frmUtils
+
 Private Sub LookForWag(strWag As String, strFoundPath As String)
     Dim TrainsetPath As String, i As Integer
     On Error GoTo Errtrap
@@ -608,7 +610,7 @@ Private Sub LooseActivities(ActPath As String)
     On Error GoTo Errtrap
 
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    RoutePath = MSTSPath & "\Routes" 'RoutePath defined in this form
     TrainsetPath = MSTSPath & "\Trains\Trainset\"
 
     x = InStrRev(ActPath, "\")
@@ -686,14 +688,16 @@ Private Sub LooseConsistsGrid(ActPath As String)
     Dim booEntry     As Boolean
     Dim TrainsetPath As String
     Dim NewFile      As Integer, A$
+    Dim routesFolder As String ' avoid altering global RoutesPath
 
     On Error GoTo Errtrap
 
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    'RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     TrainsetPath = MSTSPath & "\Trains\Trainset\"
 
-    ActPath = RoutePath & "\" & ActPath
+    ActPath = routesFolder & "\" & ActPath
 
     NewFile = FreeFile
     Open ActPath For Input As #NewFile

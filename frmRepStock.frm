@@ -407,22 +407,23 @@ Private Sub Command1_Click()
     Dim strCon           As String, strNewRoute As String
     Dim i                As Integer
     Dim strTempFilesPath As String
+    Dim routesFolder As String 'replace global RoutePath to avoid side effects
     
     On Error GoTo Errtrap
     Command1.Enabled = False
     strTempFilesPath = SpecialFolder(SpecialFolder_LocalAppData) & "\Route_Riter\TempFiles"
     If flagGrid = 2 And Check1.value = 0 Then
         Rem ********* Change rolling stock item ************
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
         strTempCon = strNewCon
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strGridPath = Trim(strNewPath)
         If Left(strGridPath, 1) = ChrW$(34) Then
             strGridPath = Mid(strGridPath, 2)
@@ -464,34 +465,34 @@ Private Sub Command1_Click()
         Rem ***************** Activity Change *************
 
     ElseIf flagGrid = 3 Then
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strTempCon = strNewCon
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
 
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strNewPath = ChrW$(34) & strNewPath & ChrW$(34)
         strNewCon = strNewCon & " " & strNewPath
         frmGrid.Grid1.Select MyRow, 1
         strCon = frmGrid.Grid1.Cell(flexcpText)
         frmGrid.Grid1.Select MyRow, 0
         strNewRoute = frmGrid.Grid1.Cell(flexcpText)
-        RoutePath = MSTSPath & "\Routes\"
-        FileCopy RoutePath & strNewRoute & "\Activities\" & strCon, strTempFilesPath & "\" & strCon
+        routesFolder = MSTSPath & "\Routes\"
+        FileCopy routesFolder & strNewRoute & "\Activities\" & strCon, strTempFilesPath & "\" & strCon
         DoEvents
         flagway = 0    'unicode to ascii
         Call ConvertStock(strTempFilesPath & "\" & strCon, flagway, strOldCon, strNewCon, strStockType)
         DoEvents
-        Kill RoutePath & strNewRoute & "\Activities\" & strCon
+        Kill routesFolder & strNewRoute & "\Activities\" & strCon
         DoEvents
         flagway = 1    'unicode to ascii
         Call ConvertStock(strTempFilesPath & "\" & strCon, flagway, strOldCon, strNewCon, strStockType)
-        FileCopy strTempFilesPath & "\" & strCon, RoutePath & strNewRoute & "\Activities\" & strCon
+        FileCopy strTempFilesPath & "\" & strCon, routesFolder & strNewRoute & "\Activities\" & strCon
         DoEvents
         Kill strTempFilesPath & "\" & strCon
         Label3.Caption = "Activity Modified"
@@ -501,16 +502,16 @@ Private Sub Command1_Click()
         frmGrid.Grid2.CellBackColor = vbWhite
         frmGrid.Grid2.Cell(flexcpText) = strTempCon
     ElseIf flagGrid = 4 Then
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
         strTempCon = strNewCon
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strNewPath = ChrW$(34) & strNewPath & ChrW$(34)
         strNewCon = strNewCon & " " & strNewPath
         frmGrid.Grid1.Select MyRow, 4
@@ -532,16 +533,16 @@ Private Sub Command1_Click()
 
         'frmGrid.Grid1.Cell(flexcpText) = strTempCon & ".con"
     ElseIf flagGrid = 5 Then
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
         strTempCon = strNewCon
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strNewPath = ChrW$(34) & strNewPath & ChrW$(34)
         strNewCon = strNewCon & " " & strNewPath
         frmUnusedSrv.GridCon.Select MyRow, 0
@@ -563,16 +564,16 @@ Private Sub Command1_Click()
         Rem *************
     ElseIf flagGrid = 6 Then
         Rem ********* Change rolling stock item ************
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
         strTempCon = strNewCon
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strNewPath = ChrW$(34) & strNewPath & ChrW$(34)
         strNewCon = strNewCon & " " & strNewPath
 
@@ -600,17 +601,17 @@ Private Sub Command1_Click()
 
     ElseIf flagGrid = 2 And Check1.value = 1 Then
         Rem *********Change in all Consists/Activities ************
-        newRow = gridRepCon.row
-        newCol = gridRepCon.col
+        newRow = GridRepCon.row
+        newCol = GridRepCon.col
         strOldCon = Left$(Label2(0).Caption, Len(Label2(0).Caption) - 4)
         strOldStock = Label2(0).Caption
         strStockType = Right$(Label2(0).Caption, 3)
-        strNewCon = gridRepCon.Cell(flexcpText)
+        strNewCon = GridRepCon.Cell(flexcpText)
         strNewCon = Left$(strNewCon, Len(strNewCon) - 4)
         strTempCon = strNewCon
         strNewCon = ChrW$(34) & strNewCon & ChrW$(34)
-        gridRepCon.Select newRow, newCol + 1
-        strNewPath = gridRepCon.Cell(flexcpText)
+        GridRepCon.Select newRow, newCol + 1
+        strNewPath = GridRepCon.Cell(flexcpText)
         strNewPath = ChrW$(34) & strNewPath & ChrW$(34)
         strNewCon = strNewCon & " " & strNewPath
         Rem ****************
@@ -688,14 +689,15 @@ Private Sub LooseConsistsGrid(ActPath As String)
     Dim Wagonpath    As String, booEntry As Boolean
     Dim TrainsetPath As String
     Dim NewFile      As Integer, A$
+    Dim routesFolder As String 'replace global RoutePath
 
     On Error GoTo Errtrap
 
     MousePointer = 11
-    RoutePath = MSTSPath & "\Routes"
+    routesFolder = MSTSPath & "\Routes"
     TrainsetPath = MSTSPath & "\Trains\Trainset\"
 
-    ActPath = RoutePath & "\" & ActPath
+    ActPath = routesFolder & "\" & ActPath
 
     NewFile = FreeFile
     Open ActPath For Input As #NewFile
@@ -772,7 +774,7 @@ Private Sub Form_Load()
     
     'MousePointer = 11
 
-    gridRepCon.BackColor = vbWhite
+    GridRepCon.BackColor = vbWhite
     Me.Caption = Lang(291)
     If flagGrid = 2 Then
         Check1.Visible = True
@@ -785,19 +787,19 @@ Private Sub Form_Load()
         MyCol = frmStock.GridStock.col
         strStockType = Right$(frmStock.GridStock.Cell(flexcpText), 3)
         Label2(0).Caption = frmStock.GridStock.Cell(flexcpText)
-        gridRepCon.width = 9000
-        gridRepCon.Cols = 5
+        GridRepCon.width = 9000
+        GridRepCon.Cols = 5
 
-        gridRepCon.ExplorerBar = flexExSort
+        GridRepCon.ExplorerBar = flexExSort
         If strStockType = "eng" Then
             Label1.Caption = Lang(356)
             frmRepStock.Caption = Lang(357)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(358)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(358)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngLoco - 1
                 tempPath = MSTSPath & "\trains\trainset\" & LocoPath(i) & "\" & Locomotives(i)
@@ -818,18 +820,18 @@ Private Sub Form_Load()
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherLoco:
             Next i
         Else
             Label1.Caption = Lang(359)
             frmRepCon.Caption = Lang(360)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(361)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(361)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngWagons - 1
                 tempPath = MSTSPath & "\trains\trainset\" & Wagpath(i) & "\" & Wagons(i)
@@ -848,7 +850,7 @@ TryAnotherLoco:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherWag:
             Next i
         End If
@@ -858,19 +860,19 @@ TryAnotherWag:
         MyCol = frmGrid.Grid1.col
         strStockType = Right$(frmGrid.Grid2.Cell(flexcpText), 3)
         Label2(0).Caption = frmGrid.Grid2.Cell(flexcpText)
-        gridRepCon.width = 9000
-        gridRepCon.Cols = 5
+        GridRepCon.width = 9000
+        GridRepCon.Cols = 5
 
-        gridRepCon.ExplorerBar = flexExSort
+        GridRepCon.ExplorerBar = flexExSort
         If strStockType = "eng" Then
             Label1.Caption = Lang(356)
             frmRepCon.Caption = Lang(362)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(358)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(358)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngLoco - 1
                 tempPath = MSTSPath & "\trains\trainset\" & LocoPath(i) & "\" & Locomotives(i)
@@ -890,18 +892,18 @@ TryAnotherWag:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnother:
             Next i
         Else
             Label1.Caption = Lang(359)
             frmRepCon.Caption = Lang(363)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(361)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(361)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngWagons - 1
                 tempPath = MSTSPath & "\trains\trainset\" & Wagpath(i) & "\" & Wagons(i)
@@ -920,7 +922,7 @@ TryAnother:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherWag2:
             Next i
         End If
@@ -932,19 +934,19 @@ TryAnotherWag2:
         strStockType = Right$(frmGrid.Grid2.Cell(flexcpText), 3)
         Label2(0).Caption = frmGrid.Grid2.Cell(flexcpText)
         'Call GetCoupling(tempPath, flagCouple, strBrake, strType, strName)
-        gridRepCon.width = 9000
-        gridRepCon.Cols = 5
+        GridRepCon.width = 9000
+        GridRepCon.Cols = 5
 
-        gridRepCon.ExplorerBar = flexExSort
+        GridRepCon.ExplorerBar = flexExSort
         If strStockType = "eng" Then
             Label1.Caption = Lang(356)
             frmRepCon.Caption = Lang(357)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(358)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(358)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngLoco - 1
                 tempPath = MSTSPath & "\trains\trainset\" & LocoPath(i) & "\" & Locomotives(i)
@@ -963,18 +965,18 @@ TryAnotherWag2:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherLoco3:
             Next i
         Else
             Label1.Caption = Lang(359)
             frmRepCon.Caption = Lang(360)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(361)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(361)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngWagons - 1
                 tempPath = MSTSPath & "\trains\trainset\" & Wagpath(i) & "\" & Wagons(i)
@@ -993,7 +995,7 @@ TryAnotherLoco3:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherWag3:
             Next i
         End If
@@ -1003,19 +1005,19 @@ TryAnotherWag3:
         MyCol = frmUnusedSrv.GridCon.col
         strStockType = Right$(frmUnusedSrv.GridLoco.Cell(flexcpText), 3)
         Label2(0).Caption = frmUnusedSrv.GridLoco.Cell(flexcpText)
-        gridRepCon.width = 7000
-        gridRepCon.Cols = 2
+        GridRepCon.width = 7000
+        GridRepCon.Cols = 2
 
-        gridRepCon.ExplorerBar = flexExSort
+        GridRepCon.ExplorerBar = flexExSort
         If strStockType = "eng" Then
             Label1.Caption = Lang(356)
             frmRepCon.Caption = Lang(357)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(358)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(358)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngLoco - 1
                 tempPath = MSTSPath & "\trains\trainset\" & LocoPath(i) & "\" & Locomotives(i)
@@ -1034,18 +1036,18 @@ TryAnotherWag3:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherLoco4:
             Next i
         Else
             Label1.Caption = Lang(359)
             frmRepCon.Caption = Lang(360)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(361)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(361)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngWagons - 1
                 tempPath = MSTSPath & "\trains\trainset\" & Wagpath(i) & "\" & Wagons(i)
@@ -1064,7 +1066,7 @@ TryAnotherLoco4:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherWag4:
             Next i
         End If
@@ -1076,19 +1078,19 @@ TryAnotherWag4:
         x = InStrRev(frmStock.Grid3.Cell(flexcpText), "\")
         Label2(0).Caption = Mid$(frmStock.Grid3.Cell(flexcpText), x + 1)
         'Label2(0).Caption = frmStock.Grid3.Cell(flexcpText)
-        gridRepCon.width = 9000
-        gridRepCon.Cols = 5
+        GridRepCon.width = 9000
+        GridRepCon.Cols = 5
 
-        gridRepCon.ExplorerBar = flexExSort
+        GridRepCon.ExplorerBar = flexExSort
         If strStockType = "eng" Then
             Label1.Caption = Lang(356)
             frmRepStock.Caption = Lang(357)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(358)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(358)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngLoco - 1
                 tempPath = MSTSPath & "\trains\trainset\" & LocoPath(i) & "\" & Locomotives(i)
@@ -1109,18 +1111,18 @@ TryAnotherWag4:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Locomotives(i) & vbTab & LocoPath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherLoco6:
             Next i
         Else
             Label1.Caption = Lang(359)
             frmRepCon.Caption = Lang(360)
-            gridRepCon.Select 0, 0
-            gridRepCon.Cell(flexcpText) = Lang(361)
-            gridRepCon.Select 0, 1
-            gridRepCon.Cell(flexcpText) = Lang(293)
+            GridRepCon.Select 0, 0
+            GridRepCon.Cell(flexcpText) = Lang(361)
+            GridRepCon.Select 0, 1
+            GridRepCon.Cell(flexcpText) = Lang(293)
 
-            gridRepCon.Rows = 1
+            GridRepCon.Rows = 1
 
             For i = 0 To lngWagons - 1
                 tempPath = MSTSPath & "\trains\trainset\" & Wagpath(i) & "\" & Wagons(i)
@@ -1139,16 +1141,16 @@ TryAnotherLoco6:
                     Label2(2).Caption = strBrake
                     Label2(3).Caption = strType
                 End If
-                gridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
+                GridRepCon.AddItem Wagons(i) & vbTab & Wagpath(i) & vbTab & Couple & vbTab & strBrake & vbTab & strType
 TryAnotherWag6:
             Next i
         End If
 
     End If
     If flagGrid <> 1 Then
-        gridRepCon.ColAlignment(1) = flexAlignLeftCenter
-        gridRepCon.col = 0
-        gridRepCon.Sort = flexSortStringAscending
+        GridRepCon.ColAlignment(1) = flexAlignLeftCenter
+        GridRepCon.col = 0
+        GridRepCon.Sort = flexSortStringAscending
     End If
     frmStock.MousePointer = 0
 End Sub

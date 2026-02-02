@@ -9,45 +9,19 @@ Begin VB.Form frmConEdit
    ClientHeight    =   13365
    ClientLeft      =   60
    ClientTop       =   750
-   ClientWidth     =   21195
+   ClientWidth     =   16080
    LinkTopic       =   "Form1"
    ScaleHeight     =   13365
-   ScaleWidth      =   21195
+   ScaleWidth      =   16080
    StartUpPosition =   2  'CenterScreen
-   Begin trainlib.sfCanvas sfCanvas1 
-      Height          =   2550
-      Left            =   16200
-      TabIndex        =   1
-      Top             =   1440
-      Visible         =   0   'False
-      Width           =   4815
-      _ExtentX        =   8493
-      _ExtentY        =   4498
-      BackColor       =   -2147483643
-      AutoRedraw      =   0   'False
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      fogFactor       =   0
-      skyTexture      =   ""
-      screenshotLocation=   ""
-      Time            =   0
-      Latitude        =   0
-   End
    Begin C1SizerLibCtl.C1Elastic C1Elastic1 
       Height          =   13365
       Left            =   0
       TabIndex        =   8
       TabStop         =   0   'False
       Top             =   0
-      Width           =   21195
-      _cx             =   37386
+      Width           =   16080
+      _cx             =   28363
       _cy             =   23574
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -103,167 +77,192 @@ Begin VB.Form frmConEdit
          Caption         =   "Length"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   13560
-         TabIndex        =   113
+         Left            =   10290
+         TabIndex        =   1
          Top             =   9000
-         Width           =   1575
+         Width           =   1185
       End
       Begin VB.CheckBox Check7 
          BackColor       =   &H8000000B&
          Caption         =   "Mass"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   11880
+         Left            =   9015
          TabIndex        =   112
          Top             =   9000
-         Width           =   1575
+         Width           =   1200
       End
       Begin VB.CheckBox Check6 
          BackColor       =   &H8000000B&
          Caption         =   "Type"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   10200
+         Left            =   7740
          TabIndex        =   111
          Top             =   9000
-         Width           =   1575
+         Width           =   1200
       End
       Begin VB.CheckBox Check5 
          BackColor       =   &H8000000B&
          Caption         =   "Coupling"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   8520
+         Left            =   6465
          TabIndex        =   110
          Top             =   9000
-         Width           =   1575
+         Width           =   1200
       End
       Begin VB.CheckBox Check4 
          BackColor       =   &H8000000B&
          Caption         =   "Length"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   6120
+         Left            =   4650
          TabIndex        =   109
          Top             =   9000
-         Width           =   1575
+         Width           =   1185
       End
       Begin VB.CheckBox Check3 
          BackColor       =   &H8000000B&
          Caption         =   "Max Power"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   2760
+         Left            =   2100
          TabIndex        =   108
          Top             =   9000
-         Width           =   1575
+         Width           =   1185
       End
       Begin VB.CheckBox Check2 
          BackColor       =   &H8000000B&
          Caption         =   "Mass"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   4560
+         Left            =   3465
          TabIndex        =   107
          Top             =   9000
-         Width           =   1575
+         Width           =   1185
       End
       Begin VB.CheckBox Check1 
          BackColor       =   &H8000000B&
          Caption         =   "Coupling"
          ForeColor       =   &H00000000&
          Height          =   255
-         Left            =   960
+         Left            =   735
          TabIndex        =   106
          Top             =   9000
-         Width           =   1575
+         Width           =   1185
       End
       Begin VB.CommandButton Command9 
          Caption         =   "Save Activity"
          Enabled         =   0   'False
          Height          =   390
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   103
          Top             =   12270
-         Width           =   1350
+         Width           =   1020
       End
       Begin VB.CommandButton Command8 
          Caption         =   "Save Loose Consist"
          Enabled         =   0   'False
          Height          =   390
-         Left            =   17475
+         Left            =   13260
          TabIndex        =   102
          Top             =   12270
-         Width           =   1740
+         Width           =   1320
       End
       Begin VB.TextBox Text4 
          Alignment       =   2  'Center
          Height          =   420
-         Left            =   15600
+         Left            =   11835
          TabIndex        =   85
          Top             =   12765
          Visible         =   0   'False
-         Width           =   555
+         Width           =   420
       End
       Begin VB.CommandButton Command7 
          Caption         =   "Display Loose Consist #"
          Height          =   510
-         Left            =   13995
+         Left            =   10620
          TabIndex        =   84
          Top             =   12720
          Visible         =   0   'False
-         Width           =   1485
+         Width           =   1125
       End
       Begin VB.TextBox Text3 
          Height          =   300
-         Left            =   13560
+         Left            =   10290
          TabIndex        =   83
          Top             =   8685
-         Width           =   2205
+         Width           =   1665
       End
       Begin VB.TextBox Text2 
          Height          =   300
-         Left            =   6015
+         Left            =   4560
          TabIndex        =   81
          Top             =   8685
-         Width           =   2070
+         Width           =   1575
       End
       Begin VB.PictureBox Picture1 
          Height          =   2595
-         Left            =   16005
+         Left            =   12150
          ScaleHeight     =   2535
-         ScaleWidth      =   4815
+         ScaleWidth      =   3630
          TabIndex        =   70
          Top             =   240
-         Width           =   4875
+         Width           =   3690
+         Begin trainlib.sfCanvas sfCanvas1 
+            Height          =   1215
+            Left            =   240
+            TabIndex        =   113
+            Top             =   600
+            Visible         =   0   'False
+            Width           =   2175
+            _ExtentX        =   3836
+            _ExtentY        =   2143
+            BackColor       =   -2147483633
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            fogFactor       =   0
+            skyTexture      =   ""
+            screenshotLocation=   ""
+            Time            =   0
+            Latitude        =   0
+         End
          Begin VB.Image Image2 
             Height          =   2550
-            Left            =   0
+            Left            =   480
             Stretch         =   -1  'True
-            Top             =   0
+            Top             =   480
             Visible         =   0   'False
             Width           =   4815
          End
       End
       Begin VB.PictureBox pixStart 
          Height          =   2595
-         Left            =   16005
+         Left            =   12150
          ScaleHeight     =   2535
-         ScaleWidth      =   4815
+         ScaleWidth      =   3630
          TabIndex        =   69
          Top             =   240
          Visible         =   0   'False
-         Width           =   4875
+         Width           =   3690
       End
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   2
-         Left            =   5775
+         Left            =   4380
          ScaleHeight     =   1230
-         ScaleWidth      =   2385
+         ScaleWidth      =   1800
          TabIndex        =   52
          Top             =   9795
-         Width           =   2445
+         Width           =   1860
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   2
@@ -276,12 +275,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   3
-         Left            =   8280
+         Left            =   6285
          ScaleHeight     =   1230
-         ScaleWidth      =   2385
+         ScaleWidth      =   1785
          TabIndex        =   51
          Top             =   9795
-         Width           =   2445
+         Width           =   1845
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   3
@@ -294,12 +293,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   4
-         Left            =   10770
+         Left            =   8175
          ScaleHeight     =   1230
-         ScaleWidth      =   2400
+         ScaleWidth      =   1800
          TabIndex        =   50
          Top             =   9795
-         Width           =   2460
+         Width           =   1860
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   4
@@ -312,12 +311,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   5
-         Left            =   13290
+         Left            =   10080
          ScaleHeight     =   1230
-         ScaleWidth      =   2400
+         ScaleWidth      =   1815
          TabIndex        =   49
          Top             =   9795
-         Width           =   2460
+         Width           =   1875
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   5
@@ -330,12 +329,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   6
-         Left            =   15795
+         Left            =   11985
          ScaleHeight     =   1230
-         ScaleWidth      =   2370
+         ScaleWidth      =   1785
          TabIndex        =   48
          Top             =   9795
-         Width           =   2430
+         Width           =   1845
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   6
@@ -348,12 +347,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   7
-         Left            =   18285
+         Left            =   13875
          ScaleHeight     =   1230
-         ScaleWidth      =   2400
+         ScaleWidth      =   1800
          TabIndex        =   47
          Top             =   9795
-         Width           =   2460
+         Width           =   1860
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   7
@@ -366,12 +365,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   1
-         Left            =   3285
+         Left            =   2490
          ScaleHeight     =   1230
-         ScaleWidth      =   2385
+         ScaleWidth      =   1800
          TabIndex        =   46
          Top             =   9795
-         Width           =   2445
+         Width           =   1860
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   1
@@ -384,12 +383,12 @@ Begin VB.Form frmConEdit
       Begin VB.PictureBox Picture2 
          Height          =   1290
          Index           =   0
-         Left            =   765
+         Left            =   585
          ScaleHeight     =   1230
-         ScaleWidth      =   2400
+         ScaleWidth      =   1800
          TabIndex        =   45
          Top             =   9795
-         Width           =   2460
+         Width           =   1860
          Begin VB.Image Image1 
             Height          =   1335
             Index           =   0
@@ -412,10 +411,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   390
          Index           =   0
-         Left            =   7080
+         Left            =   5370
          TabIndex        =   34
          Top             =   12270
-         Width           =   780
+         Width           =   600
       End
       Begin VB.CommandButton Command3 
          Caption         =   "<"
@@ -430,10 +429,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   390
          Index           =   1
-         Left            =   7710
+         Left            =   5850
          TabIndex        =   33
          Top             =   12270
-         Width           =   795
+         Width           =   600
       End
       Begin VB.CommandButton Command3 
          Caption         =   ">"
@@ -448,10 +447,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   390
          Index           =   4
-         Left            =   8490
+         Left            =   6435
          TabIndex        =   32
          Top             =   12270
-         Width           =   780
+         Width           =   600
       End
       Begin VB.CommandButton Command3 
          Caption         =   ">>"
@@ -466,78 +465,79 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   390
          Index           =   5
-         Left            =   9270
+         Left            =   7035
          TabIndex        =   31
          Top             =   12270
-         Width           =   780
+         Width           =   585
       End
       Begin VB.TextBox Text1 
          Height          =   390
          Index           =   1
-         Left            =   11460
+         Left            =   8700
          TabIndex        =   30
          Top             =   12270
-         Width           =   4080
+         Width           =   3090
       End
       Begin VB.TextBox Text1 
          Height          =   390
          Index           =   0
-         Left            =   1800
+         Left            =   1365
          TabIndex        =   29
          Top             =   12270
-         Width           =   4740
+         Width           =   3600
       End
       Begin VB.CommandButton Command2 
          Caption         =   "&Save Consist"
          Height          =   390
-         Left            =   19320
+         Left            =   14655
          TabIndex        =   28
          Top             =   12270
-         Width           =   1425
+         Width           =   1080
       End
       Begin VB.CommandButton Command1 
          Caption         =   "&Exit"
          Height          =   390
-         Left            =   19320
+         Left            =   14655
          TabIndex        =   23
          Top             =   12765
-         Width           =   1425
+         Width           =   1080
       End
       Begin VB.CommandButton Command4 
          Caption         =   "Show in 3D"
          Height          =   390
-         Left            =   17910
+         Left            =   13590
          TabIndex        =   22
          Top             =   2805
-         Width           =   1305
+         Width           =   990
       End
       Begin VB.CommandButton Command5 
          Caption         =   "Clear All"
          Height          =   390
-         Left            =   17850
+         Left            =   13545
          TabIndex        =   21
          Top             =   12765
-         Width           =   1425
+         Width           =   1080
       End
       Begin RichTextLib.RichTextBox RTB1 
          Height          =   4545
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   9
          Top             =   3180
-         Width           =   4875
-         _ExtentX        =   8599
+         Width           =   3690
+         _ExtentX        =   6509
          _ExtentY        =   8017
          _Version        =   393217
+         Enabled         =   -1  'True
          ScrollBars      =   2
          TextRTF         =   $"frmConEdit.frx":0000
       End
       Begin VSFlex8LCtl.VSFlexGrid List2 
          Height          =   8340
-         Left            =   8280
+         Left            =   6285
          TabIndex        =   24
          Top             =   240
-         Width           =   7575
-         _cx             =   13361
+         Width           =   5745
+         _cx             =   10134
          _cy             =   14711
          Appearance      =   1
          BorderStyle     =   1
@@ -583,7 +583,7 @@ Begin VB.Form frmConEdit
          ColWidthMin     =   0
          ColWidthMax     =   0
          ExtendLastCol   =   0   'False
-         FormatString    =   $"frmConEdit.frx":0082
+         FormatString    =   ""
          ScrollTrack     =   0   'False
          ScrollBars      =   3
          ScrollTips      =   0   'False
@@ -639,11 +639,11 @@ Begin VB.Form frmConEdit
       End
       Begin VSFlex8LCtl.VSFlexGrid List1 
          Height          =   8340
-         Left            =   600
+         Left            =   450
          TabIndex        =   26
          Top             =   240
-         Width           =   7560
-         _cx             =   13335
+         Width           =   5745
+         _cx             =   10134
          _cy             =   14711
          Appearance      =   1
          BorderStyle     =   1
@@ -689,7 +689,7 @@ Begin VB.Form frmConEdit
          ColWidthMin     =   0
          ColWidthMax     =   0
          ExtendLastCol   =   0   'False
-         FormatString    =   $"frmConEdit.frx":014D
+         FormatString    =   ""
          ScrollTrack     =   0   'False
          ScrollBars      =   3
          ScrollTips      =   0   'False
@@ -748,19 +748,19 @@ Begin VB.Form frmConEdit
          BackColor       =   &H8000000B&
          Caption         =   "Selected Loco or Wagon File Path"
          Height          =   390
-         Left            =   240
+         Left            =   180
          TabIndex        =   105
          Top             =   12840
-         Width           =   1500
+         Width           =   1140
       End
       Begin VB.Label Label10 
          BackColor       =   &H00FFFFFF&
          BorderStyle     =   1  'Fixed Single
          Height          =   510
-         Left            =   1800
+         Left            =   1365
          TabIndex        =   104
          Top             =   12720
-         Width           =   12150
+         Width           =   9225
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -776,10 +776,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   15
-         Left            =   20400
+         Left            =   15480
          TabIndex        =   101
          Top             =   9420
-         Width           =   270
+         Width           =   195
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -795,10 +795,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   14
-         Left            =   17850
+         Left            =   13545
          TabIndex        =   100
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -814,10 +814,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   13
-         Left            =   15465
+         Left            =   11730
          TabIndex        =   99
          Top             =   9420
-         Width           =   285
+         Width           =   225
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -833,10 +833,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   12
-         Left            =   12930
+         Left            =   9810
          TabIndex        =   98
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -852,10 +852,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   11
-         Left            =   10410
+         Left            =   7905
          TabIndex        =   97
          Top             =   9420
-         Width           =   270
+         Width           =   195
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -871,10 +871,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   10
-         Left            =   7860
+         Left            =   5970
          TabIndex        =   96
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -890,10 +890,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   9
-         Left            =   5460
+         Left            =   4140
          TabIndex        =   95
          Top             =   9420
-         Width           =   285
+         Width           =   225
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -909,10 +909,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   8
-         Left            =   2940
+         Left            =   2235
          TabIndex        =   94
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -928,10 +928,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   7
-         Left            =   18255
+         Left            =   13845
          TabIndex        =   93
          Top             =   9420
-         Width           =   285
+         Width           =   225
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -947,10 +947,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   6
-         Left            =   15870
+         Left            =   12045
          TabIndex        =   92
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -966,10 +966,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   5
-         Left            =   13335
+         Left            =   10110
          TabIndex        =   91
          Top             =   9420
-         Width           =   270
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -985,10 +985,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   4
-         Left            =   10785
+         Left            =   8175
          TabIndex        =   90
          Top             =   9420
-         Width           =   285
+         Width           =   225
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -1004,10 +1004,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   3
-         Left            =   8400
+         Left            =   6375
          TabIndex        =   89
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -1023,10 +1023,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   2
-         Left            =   5865
+         Left            =   4455
          TabIndex        =   88
          Top             =   9420
-         Width           =   285
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -1042,10 +1042,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   1
-         Left            =   3345
+         Left            =   2535
          TabIndex        =   87
          Top             =   9420
-         Width           =   270
+         Width           =   210
       End
       Begin VB.Label Label8 
          Alignment       =   2  'Center
@@ -1061,191 +1061,191 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   0
-         Left            =   795
+         Left            =   600
          TabIndex        =   86
          Top             =   9420
-         Width           =   285
+         Width           =   225
       End
       Begin VB.Label Label7 
          BackColor       =   &H8000000B&
          Caption         =   "Find"
          Height          =   270
          Index           =   1
-         Left            =   13185
+         Left            =   10005
          TabIndex        =   82
          Top             =   8685
-         Width           =   525
+         Width           =   390
       End
       Begin VB.Label Label7 
          BackColor       =   &H8000000B&
          Caption         =   "Find"
          Height          =   270
          Index           =   0
-         Left            =   5625
+         Left            =   4275
          TabIndex        =   80
          Top             =   8685
-         Width           =   405
+         Width           =   300
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   15
-         Left            =   18420
+         Left            =   13980
          TabIndex        =   79
          Top             =   11535
-         Width           =   2325
+         Width           =   1755
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   14
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   78
          Top             =   11535
-         Width           =   2295
+         Width           =   1740
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   13
-         Left            =   13425
+         Left            =   10185
          TabIndex        =   77
          Top             =   11535
-         Width           =   2340
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   12
-         Left            =   10875
+         Left            =   8250
          TabIndex        =   76
          Top             =   11535
-         Width           =   2325
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   11
-         Left            =   8310
+         Left            =   6300
          TabIndex        =   75
          Top             =   11535
-         Width           =   2310
+         Width           =   1755
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   10
-         Left            =   5880
+         Left            =   4455
          TabIndex        =   74
          Top             =   11535
-         Width           =   2325
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   9
-         Left            =   3345
+         Left            =   2535
          TabIndex        =   73
          Top             =   11535
-         Width           =   2295
+         Width           =   1740
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   630
          Index           =   8
-         Left            =   765
+         Left            =   585
          TabIndex        =   72
          Top             =   11535
-         Width           =   2325
+         Width           =   1755
       End
       Begin VB.Label Label6 
          Caption         =   "Consist Length:"
          Height          =   375
          Index           =   3
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   71
          Top             =   8940
-         Width           =   4875
+         Width           =   3690
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   0
-         Left            =   1470
+         Left            =   1110
          TabIndex        =   68
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   1
-         Left            =   3855
+         Left            =   2925
          TabIndex        =   67
          Top             =   9420
-         Width           =   660
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   2
-         Left            =   6390
+         Left            =   4845
          TabIndex        =   66
          Top             =   9420
-         Width           =   660
+         Width           =   510
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   3
-         Left            =   8940
+         Left            =   6780
          TabIndex        =   65
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   4
-         Left            =   11460
+         Left            =   8700
          TabIndex        =   64
          Top             =   9420
-         Width           =   645
+         Width           =   480
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   5
-         Left            =   13860
+         Left            =   10515
          TabIndex        =   63
          Top             =   9420
-         Width           =   660
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   6
-         Left            =   16395
+         Left            =   12435
          TabIndex        =   62
          Top             =   9420
-         Width           =   660
+         Width           =   510
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
          Height          =   270
          Index           =   7
-         Left            =   18810
+         Left            =   14265
          TabIndex        =   61
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1260,10 +1260,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   15
-         Left            =   19590
+         Left            =   14865
          TabIndex        =   60
          Top             =   9420
-         Width           =   660
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1278,10 +1278,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   14
-         Left            =   17145
+         Left            =   13005
          TabIndex        =   59
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1296,10 +1296,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   13
-         Left            =   14580
+         Left            =   11055
          TabIndex        =   58
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1314,10 +1314,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   12
-         Left            =   12120
+         Left            =   9195
          TabIndex        =   57
          Top             =   9420
-         Width           =   660
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1332,10 +1332,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   11
-         Left            =   9735
+         Left            =   7380
          TabIndex        =   56
          Top             =   9420
-         Width           =   660
+         Width           =   510
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1350,10 +1350,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   10
-         Left            =   7065
+         Left            =   5355
          TabIndex        =   55
          Top             =   9420
-         Width           =   645
+         Width           =   495
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1368,10 +1368,10 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   9
-         Left            =   4590
+         Left            =   3480
          TabIndex        =   54
          Top             =   9420
-         Width           =   660
+         Width           =   510
       End
       Begin VB.Label Label3 
          Alignment       =   2  'Center
@@ -1386,90 +1386,90 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   270
          Index           =   8
-         Left            =   2130
+         Left            =   1620
          TabIndex        =   53
          Top             =   9420
-         Width           =   660
+         Width           =   495
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   0
-         Left            =   765
+         Left            =   585
          TabIndex        =   44
          Top             =   11175
-         Width           =   2325
+         Width           =   1755
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   1
-         Left            =   3345
+         Left            =   2535
          TabIndex        =   43
          Top             =   11175
-         Width           =   2295
+         Width           =   1740
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   2
-         Left            =   5880
+         Left            =   4455
          TabIndex        =   42
          Top             =   11175
-         Width           =   2325
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   3
-         Left            =   8310
+         Left            =   6300
          TabIndex        =   41
          Top             =   11175
-         Width           =   2310
+         Width           =   1755
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   4
-         Left            =   10875
+         Left            =   8250
          TabIndex        =   40
          Top             =   11175
-         Width           =   2325
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   5
-         Left            =   13425
+         Left            =   10185
          TabIndex        =   39
          Top             =   11175
-         Width           =   2340
+         Width           =   1770
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   6
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   38
          Top             =   11175
-         Width           =   2295
+         Width           =   1740
       End
       Begin VB.Label Label5 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   375
          Index           =   7
-         Left            =   18420
+         Left            =   13980
          TabIndex        =   37
          Top             =   11175
-         Width           =   2325
+         Width           =   1755
       End
       Begin VB.Label Label4 
          Alignment       =   2  'Center
@@ -1477,30 +1477,30 @@ Begin VB.Form frmConEdit
          Caption         =   "Consist File Name"
          Height          =   390
          Index           =   0
-         Left            =   765
+         Left            =   585
          TabIndex        =   36
          Top             =   12270
-         Width           =   1020
+         Width           =   765
       End
       Begin VB.Label Label4 
          BackColor       =   &H8000000B&
          Caption         =   "Description:"
          Height          =   390
          Index           =   1
-         Left            =   10410
+         Left            =   7905
          TabIndex        =   35
          Top             =   12270
-         Width           =   885
+         Width           =   660
       End
       Begin VB.Label lblCount 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   270
          Index           =   0
-         Left            =   2190
+         Left            =   1665
          TabIndex        =   20
          Top             =   8685
-         Width           =   900
+         Width           =   675
       End
       Begin VB.Label Label1 
          Alignment       =   2  'Center
@@ -1508,10 +1508,10 @@ Begin VB.Form frmConEdit
          Caption         =   "Total Locos"
          Height          =   270
          Index           =   0
-         Left            =   765
+         Left            =   585
          TabIndex        =   19
          Top             =   8685
-         Width           =   1305
+         Width           =   990
       End
       Begin VB.Label Label2 
          Alignment       =   2  'Center
@@ -1519,30 +1519,30 @@ Begin VB.Form frmConEdit
          Caption         =   "Selected Locos"
          Height          =   510
          Index           =   0
-         Left            =   3210
+         Left            =   2430
          TabIndex        =   18
          Top             =   8685
-         Width           =   1290
+         Width           =   990
       End
       Begin VB.Label lblCount 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   270
          Index           =   1
-         Left            =   4590
+         Left            =   3480
          TabIndex        =   17
          Top             =   8685
-         Width           =   915
+         Width           =   690
       End
       Begin VB.Label lblCount 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   270
          Index           =   2
-         Left            =   12165
+         Left            =   9225
          TabIndex        =   16
          Top             =   8685
-         Width           =   900
+         Width           =   690
       End
       Begin VB.Label Label2 
          Alignment       =   2  'Center
@@ -1550,10 +1550,10 @@ Begin VB.Form frmConEdit
          Caption         =   "Selected Wagons"
          Height          =   510
          Index           =   1
-         Left            =   10605
+         Left            =   8040
          TabIndex        =   15
          Top             =   8685
-         Width           =   1440
+         Width           =   1095
       End
       Begin VB.Label Label1 
          Alignment       =   2  'Center
@@ -1561,20 +1561,20 @@ Begin VB.Form frmConEdit
          Caption         =   "Total Wagons"
          Height          =   510
          Index           =   1
-         Left            =   8310
+         Left            =   6300
          TabIndex        =   14
          Top             =   8685
-         Width           =   1305
+         Width           =   990
       End
       Begin VB.Label lblCount 
          Alignment       =   2  'Center
          BorderStyle     =   1  'Fixed Single
          Height          =   270
          Index           =   3
-         Left            =   9600
+         Left            =   7290
          TabIndex        =   13
          Top             =   8685
-         Width           =   915
+         Width           =   690
       End
       Begin VB.Label Label6 
          Caption         =   "Consist Details - "
@@ -1589,28 +1589,28 @@ Begin VB.Form frmConEdit
          EndProperty
          Height          =   390
          Index           =   0
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   12
          Top             =   7830
-         Width           =   4875
+         Width           =   3690
       End
       Begin VB.Label Label6 
          Caption         =   "Engine Mass:"
          Height          =   375
          Index           =   1
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   11
          Top             =   8205
-         Width           =   4875
+         Width           =   3690
       End
       Begin VB.Label Label6 
          Caption         =   "Wagon Mass:"
          Height          =   390
          Index           =   2
-         Left            =   16005
+         Left            =   12150
          TabIndex        =   10
          Top             =   8565
-         Width           =   4875
+         Width           =   3690
       End
    End
    Begin VB.PictureBox PicStart 
@@ -3776,7 +3776,7 @@ Private Sub Image1_MouseDown(Index As Integer, _
     ElseIf booIsAct = True Then
         numIndex = Index
         numItem = Val(Label3(numIndex).Caption)
-        PopupMenu mnuPop2
+        PopupMenu mnupop2
     End If
 End Sub
 
@@ -4342,12 +4342,12 @@ Private Sub mnuOCF_Click()
     
     Call ClearAll
     
-    CDL1.Filter = "Consist Files (*.con|*.con"
-    CDL1.DialogTitle = "Select Document to Load"
-    CDL1.InitDir = MSTSPath & "\Trains\Consists\"
-    CDL1.FilterIndex = 1
-    CDL1.Action = 1
-    strCFile = CDL1.Filename
+    Cdl1.Filter = "Consist Files (*.con|*.con"
+    Cdl1.DialogTitle = "Select Document to Load"
+    Cdl1.InitDir = MSTSPath & "\Trains\Consists\"
+    Cdl1.FilterIndex = 1
+    Cdl1.Action = 1
+    strCFile = Cdl1.Filename
     booIsAct = False
     If strCFile = vbNullString Then Exit Sub
     Command2.Enabled = True
@@ -4533,12 +4533,12 @@ Private Sub mnuOpenAct_Click()
     On Error GoTo Errtrap
     Call ClearAll
     ActNum = 0
-    CDL1.Filter = "Activity Files (*.act|*.act"
-    CDL1.DialogTitle = "Select Document to Load"
-    CDL1.InitDir = MSTSPath & "\Routes\"
-    CDL1.FilterIndex = 1
-    CDL1.Action = 1
-    strCFile = CDL1.Filename
+    Cdl1.Filter = "Activity Files (*.act|*.act"
+    Cdl1.DialogTitle = "Select Document to Load"
+    Cdl1.InitDir = MSTSPath & "\Routes\"
+    Cdl1.FilterIndex = 1
+    Cdl1.Action = 1
+    strCFile = Cdl1.Filename
     If strCFile = vbNullString Then Exit Sub
     MyString = ReadUniFile(strCFile)
     Command2.Enabled = False
